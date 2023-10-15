@@ -1,7 +1,6 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import '@fontsource/inter';
+import { CssVarsProvider } from '@mui/joy/styles';
 
 export const metadata = {
   title: 'CustomLLM',
@@ -11,7 +10,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <meta name="viewport" content="initial-scale=1, width=device-width" />
+      <body>
+        <CssVarsProvider>
+            {children}
+        </CssVarsProvider>
+      </body>
     </html>
   )
 }
