@@ -1,11 +1,10 @@
+"use client"
+
 import './globals.css'
 import '@fontsource/inter';
 import { CssVarsProvider } from '@mui/joy/styles';
+import NavBar from '@/components/NavBar';
 
-export const metadata = {
-  title: 'CustomLLM',
-  description: 'An end-to-end',
-}
 
 export default function RootLayout({ children }) {
   return (
@@ -13,6 +12,7 @@ export default function RootLayout({ children }) {
       <meta name="viewport" content="initial-scale=1, width=device-width" />
       <body>
         <CssVarsProvider>
+            <NavBar />
             {children}
         </CssVarsProvider>
       </body>
