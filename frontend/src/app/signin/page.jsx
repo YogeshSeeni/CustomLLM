@@ -15,55 +15,11 @@ import Link from "@mui/joy/Link";
 import Input from "@mui/joy/Input";
 import Typography from "@mui/joy/Typography";
 import Stack from "@mui/joy/Stack";
-import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
-import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
 import BadgeRoundedIcon from "@mui/icons-material/BadgeRounded";
 import GoogleIcon from "./GoogleIcon";
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import { useRouter } from 'next/navigation'
 
-function ColorSchemeToggle({ onClick, ...props }) {
-	const { mode, setMode } = useColorScheme();
-	const [mounted, setMounted] = React.useState(false);
-	React.useEffect(() => {
-		setMounted(true);
-	}, []);
-	if (!mounted) {
-		return <IconButton size="sm" variant="outlined" color="neutral" disabled />;
-	}
-	return (
-		<IconButton
-			id="toggle-mode"
-			size="sm"
-			variant="outlined"
-			color="neutral"
-			aria-label="toggle light/dark mode"
-			{...props}
-			onClick={(event) => {
-				if (mode === "light") {
-					setMode("dark");
-				} else {
-					setMode("light");
-				}
-				onClick?.(event);
-			}}
-		>
-			{mode === "light" ? <DarkModeRoundedIcon /> : <LightModeRoundedIcon />}
-		</IconButton>
-	);
-}
 
 export default function JoySignInSideTemplate() {
-	const router = useRouter();
-	const supabase = createClientComponentClient();
-
-	const handleSignIn = async (email, password) => {
-		await supabase.auth.signInWithPassword({
-			email,
-			password,
-		});
-		router.refresh();
-	};
 
 	return (
 		<CssVarsProvider defaultMode="dark" disableTransitionOnChange>
@@ -195,7 +151,6 @@ export default function JoySignInSideTemplate() {
 										password: formElements.password.value,
 										persistent: formElements.persistent.checked,
 									};
-									handleSignIn(data.email, data.password)
 								}}
 							>
 								<FormControl required>

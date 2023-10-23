@@ -15,9 +15,13 @@ import Link from "@mui/joy/Link";
 import Input from "@mui/joy/Input";
 import Typography from "@mui/joy/Typography";
 import Stack from "@mui/joy/Stack";
+import BadgeRoundedIcon from "@mui/icons-material/BadgeRounded";
 import GoogleIcon from "./GoogleIcon";
 
-export default function SignUp() {
+import { signIn } from "next-auth/react";
+
+export default function JoySignInSideTemplate() {
+
 	return (
 		<CssVarsProvider defaultMode="dark" disableTransitionOnChange>
 			<CssBaseline />
@@ -60,6 +64,28 @@ export default function SignUp() {
 					}}
 				>
 					<Box
+						component="header"
+						sx={{
+							py: 3,
+							display: "flex",
+							alignItems: "left",
+							justifyContent: "space-between",
+						}}
+					>
+						<Box
+							sx={{
+								gap: 2,
+								display: "flex",
+								alignItems: "center",
+							}}
+						>
+							<IconButton variant="soft" color="primary" size="sm">
+								<BadgeRoundedIcon />
+							</IconButton>
+							<Typography level="title-lg">Company logo</Typography>
+						</Box>
+					</Box>
+					<Box
 						component="main"
 						sx={{
 							my: "auto",
@@ -84,11 +110,11 @@ export default function SignUp() {
 					>
 						<Stack gap={4} sx={{ mb: 2 }}>
 							<Stack gap={1}>
-								<Typography level="h3">Sign Up</Typography>
+								<Typography level="h3">Sign in</Typography>
 								<Typography level="body-sm">
-									Already have an Account?{" "}
-									<Link href="/signin" level="title-sm">
-										Sign In!
+									New to company?{" "}
+									<Link href="#replace-with-a-link" level="title-sm">
+										Sign up!
 									</Link>
 								</Typography>
 							</Stack>
@@ -98,6 +124,7 @@ export default function SignUp() {
 								color="neutral"
 								fullWidth
 								startDecorator={<GoogleIcon />}
+								onClick={() => signIn("google")}
 							>
 								Continue with Google
 							</Button>
@@ -155,7 +182,7 @@ export default function SignUp() {
 							</form>
 						</Stack>
 					</Box>
-					<Box component="footer" sx={{ pb: 3 }}>
+					<Box component="footer" sx={{ py: 3 }}>
 						<Typography level="body-xs" textAlign="center">
 							© Your company {new Date().getFullYear()}
 						</Typography>

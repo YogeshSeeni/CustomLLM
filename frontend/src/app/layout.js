@@ -1,6 +1,5 @@
 "use client"
 
-import './globals.css'
 import '@fontsource/inter';
 import { CssVarsProvider } from '@mui/joy/styles';
 import NavBar from '@/components/NavBar';

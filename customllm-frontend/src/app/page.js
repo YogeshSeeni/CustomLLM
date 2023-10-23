@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
@@ -7,10 +9,15 @@ import Input from "@mui/joy/Input";
 import Button from "@mui/joy/Button";
 import Link from "@mui/joy/Link";
 
+import {signOut, useSession} from "next-auth/react"
+
 export default function Home() {
+	const session = useSession()
+	
 	return (
 		<>
-			Test
+			<div>{session?.data?.user?.name}</div>
+			<button onClick={() => signOut()}>Logout</button>
 		</>
 	);
 }

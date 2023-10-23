@@ -1,15 +1,18 @@
+"use client"
+
 import * as React from "react";
-import { Box, IconButton } from "@mui/joy";
+import { Box, CssVarsProvider, IconButton } from "@mui/joy";
 import Typography from "@mui/joy/Typography";
 import MapsHomeWorkIcon from "@mui/icons-material/MapsHomeWork";
 import ColorSchemeToggle from "./ColorSchemeToggle";
 import Button from "@mui/joy/Button";
-import { redirect, useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
 
 
 export default function NavBar() {
 	return (
-		<Box
+		<CssVarsProvider>
+			<Box
 			sx={{
 				display: "flex",
 				flexDirection: "row",
@@ -43,18 +46,20 @@ export default function NavBar() {
 			</Box>
 			<Box sx={{ display: "flex", flexDirection: "row", gap: 3 }}>
 					<Box sx={{ display: "flex", flexDirection: "row", gap: 3 }}>
-						<Button size="sm" color="neutral" onClick={redirect("/signup")}>
+						<Button size="sm" color="neutral">
 							Sign Up
 						</Button>
-						<Button size="sm" color="neutral" onClick={redirect("/signin")}>
+						<Button size="sm" color="neutral">
 							Sign In
 						</Button>
 					</Box>
-					<Button size="sm" color="neutral" onClick={handleSignOut}>
+					<Button size="sm" color="neutral">
 						Sign Out
 					</Button>
 				<ColorSchemeToggle sx={{ alignSelf: "center" }} />
 			</Box>
 		</Box>
+		</CssVarsProvider>
+		
 	);
 }
