@@ -1,13 +1,12 @@
 "use client"
 
-import React from "react";
-import Sheet from "@mui/joy/Sheet";
-import Typography from "@mui/joy/Typography";
-import FormControl from "@mui/joy/FormControl";
-import FormLabel from "@mui/joy/FormLabel";
-import Input from "@mui/joy/Input";
-import Button from "@mui/joy/Button";
-import Link from "@mui/joy/Link";
+import * as React from 'react';
+import { CssVarsProvider } from '@mui/joy/styles';
+import CssBaseline from '@mui/joy/CssBaseline';
+import Box from '@mui/joy/Box';
+import Sidebar from '@/components/Sidebar';
+import Header from '@/components/Header';
+import MyMessages from '@/components/MyMessages';
 
 import {signOut, useSession} from "next-auth/react"
 
@@ -15,9 +14,14 @@ export default function Home() {
 	const session = useSession()
 	
 	return (
-		<>
-			<div>{session?.data?.user?.name}</div>
-			<button onClick={() => signOut()}>Logout</button>
-		</>
-	);
+		<CssVarsProvider disableTransitionOnChange>
+		  <CssBaseline />
+		  <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
+			<Header />
+			<Box component="main" className="MainContent" sx={{ flex: 1 }}>
+			  <MyMessages />
+			</Box>
+		  </Box>
+		</CssVarsProvider>
+	  );
 }

@@ -7,9 +7,12 @@ import MapsHomeWorkIcon from "@mui/icons-material/MapsHomeWork";
 import ColorSchemeToggle from "./ColorSchemeToggle";
 import Button from "@mui/joy/Button";
 import { redirect } from 'next/navigation'
+import { useSession } from "next-auth/react";
 
 
 export default function NavBar() {
+	const {data: session} = useSession()
+
 	return (
 		<CssVarsProvider>
 			<Box
@@ -45,17 +48,16 @@ export default function NavBar() {
 				</Typography>
 			</Box>
 			<Box sx={{ display: "flex", flexDirection: "row", gap: 3 }}>
-					<Box sx={{ display: "flex", flexDirection: "row", gap: 3 }}>
+				{session ?  <Button size="sm" color="neutral">
+						Sign Out
+					</Button> : <Box sx={{ display: "flex", flexDirection: "row", gap: 3 }}>
 						<Button size="sm" color="neutral">
 							Sign Up
 						</Button>
 						<Button size="sm" color="neutral">
 							Sign In
 						</Button>
-					</Box>
-					<Button size="sm" color="neutral">
-						Sign Out
-					</Button>
+					</Box>}	
 				<ColorSchemeToggle sx={{ alignSelf: "center" }} />
 			</Box>
 		</Box>
