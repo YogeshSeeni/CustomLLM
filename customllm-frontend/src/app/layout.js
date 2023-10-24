@@ -14,7 +14,6 @@ export default async function RootLayout({ children }) {
       <body>
       <CssVarsProvider>
         <SessionProvider>
-          <NavBar />
           {children}
         </SessionProvider>
       </CssVarsProvider>

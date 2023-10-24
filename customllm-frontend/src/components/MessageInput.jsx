@@ -51,18 +51,7 @@ export default function MessageInput({
               }}
             >
               <div>
-                <IconButton size="sm" variant="plain" color="neutral">
-                  <FormatBoldRoundedIcon />
-                </IconButton>
-                <IconButton size="sm" variant="plain" color="neutral">
-                  <FormatItalicRoundedIcon />
-                </IconButton>
-                <IconButton size="sm" variant="plain" color="neutral">
-                  <StrikethroughSRoundedIcon />
-                </IconButton>
-                <IconButton size="sm" variant="plain" color="neutral">
-                  <FormatListBulletedRoundedIcon />
-                </IconButton>
+
               </div>
               <Button
                 size="sm"

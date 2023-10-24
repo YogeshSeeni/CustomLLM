@@ -25,8 +25,6 @@ export default function MessagesPane({ chat }) {
         backgroundColor: 'background.level1',
       }}
     >
-      <MessagesPaneHeader sender={chat.sender} />
-
       <Box
         sx={{
           display: 'flex',
@@ -48,12 +46,6 @@ export default function MessagesPane({ chat }) {
                 spacing={2}
                 flexDirection={isYou ? 'row-reverse' : 'row'}
               >
-                {message.sender !== 'You' && (
-                  <AvatarWithStatus
-                    online={message.sender.online}
-                    src={message.sender.avatar}
-                  />
-                )}
                 <ChatBubble variant={isYou ? 'sent' : 'received'} {...message} />
               </Stack>
             );
@@ -67,6 +59,7 @@ export default function MessagesPane({ chat }) {
         onSubmit={() => {
           const newId = chatMessages.length + 1;
           const newIdString = newId.toString();
+          console.log(textAreaValue)
           setChatMessages([
             ...chatMessages,
             {

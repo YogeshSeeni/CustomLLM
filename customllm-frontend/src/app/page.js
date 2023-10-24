@@ -9,6 +9,7 @@ import Header from '@/components/Header';
 import MyMessages from '@/components/MyMessages';
 
 import {signOut, useSession} from "next-auth/react"
+import NavBar from '@/components/NavBar';
 
 export default function Home() {
 	const session = useSession()
@@ -16,6 +17,7 @@ export default function Home() {
 	return (
 		<CssVarsProvider disableTransitionOnChange>
 		  <CssBaseline />
+		  <NavBar />
 		  <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
 			<Header />
 			<Box component="main" className="MainContent" sx={{ flex: 1 }}>
