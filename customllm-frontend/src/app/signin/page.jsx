@@ -79,10 +79,7 @@ export default function JoySignInSideTemplate() {
 								alignItems: "center",
 							}}
 						>
-							<IconButton variant="soft" color="primary" size="sm">
-								<BadgeRoundedIcon />
-							</IconButton>
-							<Typography level="title-lg">Company logo</Typography>
+							<Typography level="title-lg">CustomLLM</Typography>
 						</Box>
 					</Box>
 					<Box

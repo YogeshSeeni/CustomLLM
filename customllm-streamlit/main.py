@@ -20,7 +20,7 @@ tmp_directory = "D:/Projects/Custom Large Language Models/tmp"
 # Initialize chat history
 if 'messages' not in st.session_state:
     # Start with first message from assistant
-    st.session_state['messages'] = [{"role": "assistant", "content": "Hi human! How can I help you today?"}]
+    st.session_state['messages'] = [{"role": "assistant", "content": "Welcome to CustomLLM! Upload documents or websites for more informed response, and ask away!"}]
 
 if 'trained_files' not in st.session_state:
     st.session_state['trained_files'] = []
