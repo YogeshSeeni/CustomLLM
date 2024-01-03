@@ -49,9 +49,10 @@ def pass_prompt(llm, query, db):
 
     # Chain
     llm_chain = LLMChain(llm=llm, prompt=prompt)
-
+    
     # Run
     docs = db.similarity_search(query)
+    print(docs)
     result = llm_chain({"documents": docs, "question": query})
 
     return result["text"]
